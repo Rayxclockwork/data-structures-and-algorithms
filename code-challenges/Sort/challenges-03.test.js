@@ -60,9 +60,9 @@ For example, ['Alphabet', 'alphabet', 'carrot', 'Zebra'] is correctly sorted, an
 
 const alphabetizeBetter = (arr) => {
   return arr.sort((a,b) => {
-    if (a.toLowerCase < b.toLowerCase) {
+    if (a.toLowerCase() < b.toLowerCase()) {
       return -1;
-    } else if (a.toLowerCase > b.toLowerCase){
+    } else if (a.toLowerCase() > b.toLowerCase()){
       return 1;
     } else {
       return 0;
@@ -105,10 +105,10 @@ For example, [1, 14, 0.2, -281, 54782] is only correctly sorted in that order.
 
 const sortNumbersByLength = (arr) => {
   return arr.sort((a,b) => {
-    if (a.stringify.length < b.stringify.length){
-      return 1;
-    } else if (a.stringify.length > b.stringify.length) {
+    if (a.toString().length < b.toString().length){
       return -1;
+    } else if (a.toString().length > b.toString().length) {
+      return 1;
     } else {
       return 0;
     }
