@@ -14,8 +14,9 @@ For example:
 
 const isNum = (input) => {
   let regex = /\d?/g;
+  let str = 'hello'
 
-  return regex.test()
+  return regex.test(str)
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -57,7 +58,10 @@ Do not use the vertical bar (pipe) in your pattern.
 ------------------------------------------------------------------------------------------------ */
 
 const matchMonth = (input) => {
-  // Solution code here...
+  let regex = /^[Oo]ct(tober)?$/g
+  let str = 'OCTOBER'
+
+  return regex.test(str)
 };
 
 /* ------------------------------------------------------------------------------------------------
