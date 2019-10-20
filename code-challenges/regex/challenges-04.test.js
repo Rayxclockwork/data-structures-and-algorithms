@@ -13,7 +13,7 @@ For example:
 ------------------------------------------------------------------------------------------------ */
 
 const isNum = (input) => {
-  let regex = /\d?/g;
+  let regex = /\d/g;
   let str = 'hello'
 
   return regex.test(str)
