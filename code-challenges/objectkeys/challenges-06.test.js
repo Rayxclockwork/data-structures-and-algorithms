@@ -13,7 +13,9 @@ const courseInfo = { name: 'Code 301', duration: { dayTrack: '4 weeks', eveningT
 };
 
 const getCourseKeys = (obj) => {
-  // Solution code here...
+  let keys = Object.keys(obj);
+  return keys;
+
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -70,7 +72,10 @@ let characters = [
 
 const getHouses = (arr) => {
   let houses = [];
-  // Solution code here...
+
+  characters.forEach(house =>{
+    houses.push(house.house);
+  })
   return houses;
 };
 
@@ -87,7 +92,12 @@ hasChildrenValues(characters, 'Sansa') will return false
 ------------------------------------------------------------------------------------------------ */
 
 const hasChildrenValues = (arr, character) => {
-  // Solution code here...
+  if (character !== arr.name || character !== arr.spouse) {
+    return false;
+  } else {
+    let value = Object.values(arr, character);
+    return value;
+  }
 
 };
 
@@ -100,7 +110,7 @@ The input and output of this function are the same as the input and output from 
 ------------------------------------------------------------------------------------------------ */
 
 const hasChildrenEntries = (arr, character) => {
-  // Solution code here...
+
 };
 
 /* ------------------------------------------------------------------------------------------------
