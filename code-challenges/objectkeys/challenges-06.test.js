@@ -15,7 +15,6 @@ const courseInfo = { name: 'Code 301', duration: { dayTrack: '4 weeks', eveningT
 const getCourseKeys = (obj) => {
   let keys = Object.keys(obj);
   return keys;
-
 };
 
 /* ------------------------------------------------------------------------------------------------
