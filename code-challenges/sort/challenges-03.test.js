@@ -7,7 +7,7 @@ Write a function named sortBackwards that takes in an array of numbers and retur
 ------------------------------------------------------------------------------------------------ */
 
 const sortBackwards = (arr) => {
-  return arr.sort((a, b) => b - a)
+   return arr.sort((a, b) => b - a)
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -84,15 +84,15 @@ Here is an example of the input:
 ------------------------------------------------------------------------------------------------ */
 
 const sortByPrice = (arr) => {
-  return arr.sort((a,b) => {
-    if (a.price < b.price){
-      return -1;
-    } else if (a.price > b.price){
-      return 1;
-    } else {
-      return 0;
-    }
-  })
+ return arr.sort((a,b) => {
+   if (a.price < b.price){
+     return -1;
+   } else if (a.price > b.price){
+     return 1;
+   } else {
+     return 0;
+   }
+ })
 };
 
 /* ------------------------------------------------------------------------------------------------
