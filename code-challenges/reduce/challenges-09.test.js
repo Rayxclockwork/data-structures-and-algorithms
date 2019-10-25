@@ -69,8 +69,8 @@ let starWarsData = [{
 }];
 
 const returnNames = (arr) => {
-  // Solution code here...
-};
+
+}
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 3
@@ -146,7 +146,14 @@ Hint: The accumulator should begin as { count: 0, sum: 0 }
 ------------------------------------------------------------------------------------------------ */
 
 const calculateAverage = (arr) => {
-  // Solution code here...
+  let total = arr.reduce((counter, value) => {
+    if(!isNaN(value)){
+      counter.sum += value;
+      counter.count ++;
+    }
+    return counter;
+  })
+  return (total.sum%total.count);
 };
 
 /* ------------------------------------------------------------------------------------------------
