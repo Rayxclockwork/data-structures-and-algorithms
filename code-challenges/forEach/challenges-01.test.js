@@ -118,9 +118,7 @@ This function should use forEach to populate your grocery list based on the stor
 ------------------------------------------------------------------------------------------------ */
 
 const createList = (availableItems) => {
-  availableItems.forEach( =>
-    if(available === true)
-  )
+  
 };
 
 /* ------------------------------------------------------------------------------------------------
