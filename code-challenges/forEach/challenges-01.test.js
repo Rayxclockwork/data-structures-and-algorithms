@@ -94,7 +94,7 @@ This anonymous function should accept up to three arguments: the element, the in
 const removeWithAnon = (arr) => {
   arr.forEach( (element) => {
     if (element % 3 === 2)
-    arr.pop();
+      arr.pop();
 
   });
   return arr;
@@ -118,7 +118,7 @@ This function should use forEach to populate your grocery list based on the stor
 ------------------------------------------------------------------------------------------------ */
 
 const createList = (availableItems) => {
-  
+
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -136,8 +136,20 @@ Return the resulting output array.
 ------------------------------------------------------------------------------------------------ */
 
 const fizzbuzz = (arr) => {
-  // Solution code here...
-};
+  let newArr = [];
+  arr.forEach((num) => {
+    if (num % 15 === 0){
+      newArr.push('Fizz Buzz');
+    } else if(num % 5 === 0){
+      newArr.push('Buzz');
+    } else if (num % 3 === 0){
+      newArr.push('Fizz')
+    }else {
+      newArr.push(num);
+    }
+  })
+  return newArr;
+}
 
 /* ------------------------------------------------------------------------------------------------
 TESTS
@@ -184,7 +196,7 @@ describe('Testing challenge 5', () => {
   });
 });
 
-xdescribe('Testing challenge 6', () => {
+describe('Testing challenge 6', () => {
   const inventory = [{ name: 'apples', available: true }, { name: 'pears', available: true }, { name: 'oranges', available: false }, { name: 'bananas', available: true }, { name: 'blueberries', available: false }];
 
   test('It should only add the available items to the list', () => {
@@ -193,7 +205,7 @@ xdescribe('Testing challenge 6', () => {
   });
 });
 
-xdescribe('Testing challenge 7', () => {
+describe('Testing challenge 7', () => {
   const inputs = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16];
 
   test('It should print out messages or numbers', () => {
