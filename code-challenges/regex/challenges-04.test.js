@@ -27,9 +27,13 @@ Return an array containing all the matches.
 ------------------------------------------------------------------------------------------------ */
 
 const isCapitalized = (str) => {
-  let regex =/\b[A-Z].*?\b/g;
-
-  return str.match(regex);
+  let regex =/[A-Z].*?\b/g;
+  let arr = str.match(regex);
+  if(!arr){
+    return [];
+  }else{
+    return arr;
+  }
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -39,9 +43,15 @@ Write a function named citiesAtoJ that takes in an array of city names and uses 
 ------------------------------------------------------------------------------------------------ */
 
 const citiesAtoJ = (arr) => {
-  let regex = /[A-J]/g;
-  let cities = arr.match(regex);
-  return cities;
+  let regex = /^[A-J]/;
+  let newA = [];
+
+  arr.forEach((city) => {
+    if(regex.test(city)){
+      newA.push(city);
+    }
+  })
+  return newA;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -57,9 +67,9 @@ Do not use the vertical bar (pipe) in your pattern.
 ------------------------------------------------------------------------------------------------ */
 
 const matchMonth = (input) => {
-  let regex = /\b[Oo]ct(tober)?/g
+  let oct = /^[oO](ct(ober)?)$/;
 
-  return regex.test(input)
+  return oct.test(input);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -73,7 +83,9 @@ The expected output of "Hello, and have a wonderful day!" is ["and ", "have ", "
 ------------------------------------------------------------------------------------------------ */
 
 const noPunctuation = str => {
-  // Solution code here...
+  let regex = /[a-zA-Z0-9]*\b\s/g;
+  return str.match(regex);
+
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -89,7 +101,9 @@ For example, 'Welcome to Code 301!' will return 'W_lc_m_ t_ C_d_ 301!'.
 ------------------------------------------------------------------------------------------------ */
 
 let hangman = (str) => {
-  // Solution code here...
+  let regex = /[aeiouAEIOU]/g
+  let newStr = str.replace(regex, '_')
+  return newStr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -135,7 +149,7 @@ describe('Testing challenge 1', () => {
   });
 });
 
-xdescribe('Testing challenge 2', () => {
+describe('Testing challenge 2', () => {
   test('It should only return words that begin with a capital letter', () => {
     const capitalResult = isCapitalized('We only want to Return the Words that begin With a capital Letter');
 
@@ -148,7 +162,7 @@ xdescribe('Testing challenge 2', () => {
   });
 });
 
-xdescribe('Testing challenge 3', () => {
+describe('Testing challenge 3', () => {
   let cities = ['Cleveland', 'San Diego', 'Birmingham', 'Seattle', 'Miami', 'New York City', 'Omaha', 'Portland', 'Austin', 'Boston', 'Newport Beach', 'Hoboken'];
 
   test('It should return the cities whose names begin with the letters A through J', () => {
@@ -182,7 +196,7 @@ describe('Testing challenge 4', () => {
   });
 });
 
-xdescribe('Testing challenge 5', () => {
+describe('Testing challenge 5', () => {
   const lorem = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras lacinia vel massa sed egestas. Nunc faucibus iaculis elit, a scelerisque enim condimentum sed. Aenean ac scelerisque sem, et pharetra diam.';
 
   test('It should only return words that are immediately followed by a space', () => {
@@ -196,7 +210,7 @@ xdescribe('Testing challenge 5', () => {
   });
 });
 
-xdescribe('Testing challenge 6', () => {
+describe('Testing challenge 6', () => {
   let startString = 'This is a regex challenge. We are trying to create a hangman phrase where all of the vowels are missing!';
 
   test('It should remove the vowels from the hangman string and replace them with underscores', () => {
