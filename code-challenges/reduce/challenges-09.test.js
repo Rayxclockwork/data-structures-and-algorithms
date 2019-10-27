@@ -147,13 +147,16 @@ Hint: The accumulator should begin as { count: 0, sum: 0 }
 
 const calculateAverage = (arr) => {
   let total = arr.reduce((counter, value) => {
-    if(!isNaN(value)){
-      counter.sum += value;
-      counter.count ++;
-    }
+
+    counter.sum += value;
+    counter.count ++;
+
     return counter;
-  })
-  return (total.sum%total.count);
+  },
+  {sum:0, count:0}
+  )
+
+  return (total.sum/total.count);
 };
 
 /* ------------------------------------------------------------------------------------------------
