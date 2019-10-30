@@ -11,10 +11,11 @@ For example, twoToThe([1,2,3]) returns [2,4,8] because 2 ^ 1 = 2, 2 ^ 2 = 4, and
 ------------------------------------------------------------------------------------------------ */
 
 const forLoopTwoToThe = (arr) => {
-  for(let index of arr){
-    arr[index] = 2 ^ arr[index];
-    return arr;
+  let newArr = [];
+  for(let i = 0; i < arr.length; i++){
+    newArr.push(Math.pow(2, arr[i]));
   }
+  return newArr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -24,7 +25,11 @@ Write a function named forEachTwoToThe that produces the same output as your for
 ------------------------------------------------------------------------------------------------ */
 
 const forEachTwoToThe = (arr) => {
-  // Solution code here...
+  let newArr = [];
+  arr.forEach(num => {
+    newArr.push(Math.pow(2, num))
+  })
+  return newArr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -34,7 +39,10 @@ Write a function named mapTwoToThe that produces the same output as your forLoop
 ------------------------------------------------------------------------------------------------ */
 
 const mapTwoToThe = (arr) => {
-  // Solution code here...
+  const newArr = arr.map((num) => {
+    return Math.pow(2, num)
+  })
+  return newArr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -48,7 +56,10 @@ For example: charCode(['h','i']) returns [104, 105].
 ------------------------------------------------------------------------------------------------ */
 
 const charCode = (arr) => {
-  // Solution code here...
+  const newArr = arr.map((ind) => {
+    return ind.charCodeAt(0);
+  })
+  return newArr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -62,7 +73,15 @@ For example: evenOdd([1,2,3]) returns ['odd','even','odd'].
 ------------------------------------------------------------------------------------------------ */
 
 const evenOdd = (arr) => {
-  // Solution code here...
+  return arr.map((num) => {
+    if(isNaN(num)){
+      return 'N/A';
+    } else if(num % 2 === 0){
+      return 'even';
+    }else{
+      return 'odd';
+    }
+  })
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -108,7 +127,7 @@ const snorlaxAbilities = {
 };
 
 const extractAbilities = (arr) => {
-  // Solution code here...
+  return arr.map(obj => obj.ability.name)
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -155,7 +174,10 @@ const snorlaxStats = {
 };
 
 const extractStats = (arr) => {
-  // Solution code here...
+  return arr.map(obj => ({
+    name: obj.stat.name,
+    total: obj.effort + obj.baseStat
+  }))
 };
 
 /* ------------------------------------------------------------------------------------------------
