@@ -183,7 +183,6 @@ const lowestWeeklyAverage = (weather) => {
       temp.sum = sum;
       temp.index = i;
     }
-    //no if
   }
   return temp.sum/7;
   //divided index
