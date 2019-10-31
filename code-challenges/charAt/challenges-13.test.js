@@ -55,10 +55,7 @@ For example, 'abcdefg' returns 'bdf'
 ------------------------------------------------------------------------------------------------ */
 
 const onlyOddChars = (str) => {
-  let newArr = [];
-
-
-  return newArr;
+  return str.charAt(str[i] % 2 !== 0);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -84,7 +81,11 @@ Write a function named findAnything that takes in an array of strings, along wit
 ------------------------------------------------------------------------------------------------ */
 
 const findAnything = (arr, target) => {
-  // Solution code here...
+  let newArr = [];
+  arr.forEach(string => {
+    newArr.push(string.includes(target));
+  })
+  return newArr;
 };
 
 /* ------------------------------------------------------------------------------------------------

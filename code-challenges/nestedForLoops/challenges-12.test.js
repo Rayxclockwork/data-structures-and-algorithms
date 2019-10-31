@@ -148,7 +148,6 @@ const averageDailyTemperature = (weather) => {
     }
     return sum/index;
   }
-  //divided index
 };
 
 /* ------------------------------------------------------------------------------------------------
