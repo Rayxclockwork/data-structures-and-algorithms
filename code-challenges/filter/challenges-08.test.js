@@ -83,7 +83,7 @@ const snorlaxData = {
 };
 
 const getBaseStatGreaterThan = (arr, minBaseStat) => {
-  return arr.filter()
+  return arr.filter(move => move.baseStat > minBaseStat);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -95,7 +95,8 @@ For example, getStatName(snorlaxData.stats, 50) will return ['special-defense', 
 ------------------------------------------------------------------------------------------------ */
 
 const getStatName = (arr, minBaseStat) => {
-  // Solution code here...
+  let newArr = getBaseStatGreaterThan(arr, minBaseStat);
+  return newArr.map(move => move.stat.name);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -148,10 +149,7 @@ const characters = [
 ];
 
 const getCharactersWithoutChildren = (arr) => {
-  let newArr = arr.filter(child => {
-    child.children === [] | null
-  });
-  return newArr;
+  return arr.filter(person => person.children === undefined);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -237,7 +235,7 @@ describe('Testing challenge 4', () => {
   });
 });
 
-xdescribe('Testing challenge 5', () => {
+describe('Testing challenge 5', () => {
   test('It should return the name of the stats that exceed that maximum', () => {
     expect(getStatName(snorlaxData.stats, 50)).toStrictEqual([ 'special-defense', 'special-attack' ]);
     expect(getStatName(snorlaxData.stats, 50).length).toStrictEqual(2);
